@@ -1,7 +1,7 @@
 import argparse
 import pandas as pd
 from pandas import ExcelWriter
-
+import sys
 
 
 def process_bmi(input, output): 
@@ -9,6 +9,7 @@ def process_bmi(input, output):
 		df = pd.read_json(input)
 	except Exception as e:
 		print("Error: Specified file could not be found. Please check the file name and path")
+		sys.exit()
 
 	# calculating and storing BMI
 	df['BMI'] = (df['WeightKg'] / (df['HeightCm']/100))
@@ -34,8 +35,6 @@ def process_bmi(input, output):
 	# Count number of True in series
 	numOfRows = len(seriesObj[seriesObj == True].index)
 
-	print("Total no of Overweight patient is : ", numOfRows)
-
 	if output:
 		if output == 'CSV':
 			filename = "output.csv"
@@ -45,7 +44,7 @@ def process_bmi(input, output):
 			df.to_excel(writer,'Sheet1',index=False)
 			writer.save()
 
-	return 0
+	return numOfRows
 	
 
 if __name__ == "__main__":
@@ -55,3 +54,5 @@ if __name__ == "__main__":
 	args = parser.parse_args()
 
 	response = process_bmi(args.input, args.output)
+
+	print("Total no of Overweight patient is : ", response)

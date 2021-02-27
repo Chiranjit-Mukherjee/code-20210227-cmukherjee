@@ -14,3 +14,6 @@ You can also store the results to .csv or .xls files with optional augument like
 "python3 bmi_index.py -i data.json -o csv / xls"
 
 For clarification of the format of the .json file of patient's records a data.json file has been added as sample.
+
+# Testing
+For testing a script "test_scrpt.py" has been added, which will generate a "sample.json" file and compare the output result with desired result.
