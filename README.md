@@ -4,7 +4,7 @@ This program calculate BMI (Body Mass Index) and categorise records according to
 # Requirements
 This program is developped using python3.8. The required modules are stored in requremensts.txt file and can be installed using "pip3 install -r requirements.txt"
 
-#Usage
+# Usage
 To use this program you have to pass a .json like following
 
 "python3 bmi_index.py -i data.json"
